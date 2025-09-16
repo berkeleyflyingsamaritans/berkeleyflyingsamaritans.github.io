@@ -1,0 +1,43 @@
+---
+layout: default
+title: Publications
+---
+<div class="pub-header">
+  <h1>Publications</h1>
+  <div class="meta">Latest research, reports, and stories</div>
+</div>
+
+<div class="pub-grid">
+  <!-- Featured article on the left -->
+  <section>
+    {% assign sorted = site.publications | sort: 'date' | reverse %}
+    {% assign feature = sorted | first %}
+    {% if feature %}
+      <article class="feature-card">
+        <a href="{{ feature.url | relative_url }}">
+          <div class="img" style="background-image:url('{{ feature.image | relative_url }}');"></div>
+        </a>
+        <h2><a href="{{ feature.url | relative_url }}">{{ feature.title }}</a></h2>
+        <div class="article-meta">{{ feature.date | date: "%b %d, %Y" }} · {{ feature.authors }}</div>
+        <p>{{ feature.excerpt | default: feature.summary }}</p>
+      </article>
+    {% endif %}
+  </section>
+
+  <!-- Teasers grid on the right -->
+  <aside>
+    <h3>Latest News</h3>
+    <div class="teaser-grid">
+      {% for post in sorted offset:1 limit:6 %}
+        <article class="teaser">
+          <a href="{{ post.url | relative_url }}" class="thumb" style="background-image:url('{{ post.image | relative_url }}');"></a>
+          <div>
+            <h4 class="title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+            <div class="article-meta">{{ post.date | date: "%b %d, %Y" }}</div>
+            <p class="excerpt">{{ post.excerpt | default: post.summary }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </aside>
+</div>

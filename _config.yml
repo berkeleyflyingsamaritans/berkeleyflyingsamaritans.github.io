@@ -1,0 +1,26 @@
+title: Flying Samaritans at Berkeley
+url: "https://<username>.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-seo-tag
+
+# Navigation labels used in the layout
+nav:
+  - { title: "Resources", url: "/resources.html" }
+  - { title: "Home", url: "/" }
+  - { title: "About", url: "/about.html" }
+  - { title: "Events", url: "/events.html" }
+  - { title: "Get Involved", url: "/get-involved.html" }
+  - { title: "Blogs", url: "/blogs/" }
+  - { title: "Publications", url: "/publications/" }
+  - { title: "Donate Today", url: "/donate.html", cta: true }
+
+# Publications collection for magazine-style page
+collections:
+  publications:
+    output: true
+    permalink: /publications/:title/
